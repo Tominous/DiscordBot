@@ -29,13 +29,13 @@ function get_gif(tags, func) {
 
 	//wouldnt see request lib if defined at the top for some reason:\
 	var request = require("request");
-	//console.log(query)
+	console.log(query)
 	request(giphy_config.url + "?" + query, function (error, response, body) {
-		//console.log(arguments)
+		console.log(arguments)
 		if (error || response.statusCode !== 200) {
 			console.error("giphy: Got error: " + body);
 			console.log(error);
-			//console.log(response)
+			console.log(response)
 		}
 		else {
 			try{
