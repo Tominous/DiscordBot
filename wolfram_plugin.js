@@ -48,10 +48,10 @@ WolframPlugin.prototype.respond = function (query, channel, bot,tmpMsg) {
 	            {
 	                var subpod = pod.subpod[b];
 									//can also display the plain text, but the images are prettier
-	                /*for(var c=0; c<subpod.plaintext.length; c++)
+	                for(var c=0; c<subpod.plaintext.length; c++)
 	                {
 	                    response += '\t'+subpod.plaintext[c];
-	                }*/
+	                }
 									for(var d=0; d<subpod.img.length;d++)
 									{
 										response += "\n" + subpod.img[d].$.src;
