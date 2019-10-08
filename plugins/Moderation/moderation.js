@@ -1,8 +1,8 @@
 //None of these commands actually work. Disabling them for now
 exports.commands = [
 	"myid",
-	//"perm",
-	//"votekick",
+	"perm",
+	"votekick",
 	"kick"
 ]
 
@@ -35,14 +35,14 @@ function resolveUser(msgContext,usertxt){
 		userid = usertxt.substr(2,usertxt.length-3);
 	}
 	var user = msgContext.guild.members.get(userid);
-	/*if(!user){
+	if(!user){
 		var users = msg.guild.members.findAll("username",usertxt);
 		if(users.length == 1){
 			user = users[0];
 		} else {
 			return null;
 		}
-	}*/
+	}
 	return user;
 	}catch(e){
 		console.error(e);
