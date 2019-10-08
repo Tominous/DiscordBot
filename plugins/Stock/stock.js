@@ -13,7 +13,7 @@ exports.stock = {
 			if(error){
 				msg.channel.send("couldn't get stock: " + error);
 			} else {
-				//msg.channel.send(JSON.stringify(snapshot));
+				msg.channel.send(JSON.stringify(snapshot));
 				msg.channel.send(snapshot.name
 					+ "\nprice: $" + snapshot.lastTradePriceOnly);
 			}
