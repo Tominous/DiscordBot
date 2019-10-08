@@ -1,7 +1,7 @@
 const YoutubeDL = require('youtube-dl');
-//const YoutubeDL = require('ytdl-core');
-//const YoutubeDL = equire('ytdl-core-discord');
-//const Request = require('request');
+const YoutubeDL = require('ytdl-core');
+const YoutubeDL = equire('ytdl-core-discord');
+const Request = require('request');
 const {PassThrough} = require('stream');
 
 const createStream = (options) => {
@@ -342,12 +342,12 @@ function executeQueue(client, msg, queue) {
 
 			// Play the video.
 			msg.channel.sendMessage( wrap('Now Playing: ' + video.title)).then((cur) => {
-				//console.log(YoutubeDL);
+				console.log(YoutubeDL);
 				var playbackStream = createStream({highWaterMark: 1<<25 })
-				// });
+				 });
 				YoutubeDL( video ,['--audio-format opus', 
 				'--quality highestaudio', '-o -', '--exec "ffmpeg -reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 4 -i {} -ac 2 -codec:a libopus -b:a 64k -vbr on -compression_level 10 -frame_duration 60 -application audio"' ]).pipe(playbackStream)
-				// console.log(stream, video)
+				 console.log(stream, video)
 				dispatcher = connection.playStream(playbackStream), {
 					seek: 0,
 					passes: 3, 
@@ -376,7 +376,7 @@ function executeQueue(client, msg, queue) {
 							executeQueue(client, msg, queue);
 						}, 1000);
 					});
-				//}).catch((ex) => {msg.channel.sendMessage("playStream fail: " + ex)});//*/
+				}).catch((ex) => {msg.channel.sendMessage("playStream fail: " + ex)});//*/
 			}).catch(console.error);
 		}).catch(console.error);
 	}
