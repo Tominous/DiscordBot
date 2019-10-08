@@ -60,10 +60,10 @@ function rssfeed(bot,msg,url,count,full){
 exports.rss = {
 	description: "lists available rss feeds",
 	process: function(bot,msg,suffix) {
-		/*var args = suffix.split(" ");
+		var args = suffix.split(" ");
 		var count = args.shift();
 		var url = args.join(" ");
-		rssfeed(bot,msg,url,count,full);*/
+		rssfeed(bot,msg,url,count,full);
 		msg.channel.send("Available feeds:").then(function(){
 			for(var c in rssFeeds){
 				msg.channel.send(c + ": " + rssFeeds[c].url);
