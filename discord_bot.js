@@ -42,8 +42,8 @@ for( var i=0; i<dangerousCommands.length;i++ ){
 	}
 }
 Permissions.checkPermission = function (userid,permission){
-	//var usn = user.username + "#" + user.discriminator;
-	//console.log("Checking " + permission + " permission for " + usn);
+	var usn = user.username + "#" + user.discriminator;
+	console.log("Checking " + permission + " permission for " + usn);
 	try {
 		var allowed = true;
 		try{
@@ -299,7 +299,7 @@ function checkMessageForCommand(msg, isEdit) {
 				cmdTxt = msg.content.split(" ")[1];
 				suffix = msg.content.substring(bot.user.mention().length+cmdTxt.length+Config.commandPrefix.length+1);
 			} catch(e){ //no command
-				//msg.channel.send("Yes?");
+				msg.channel.send("Yes?");
 				return false;
 			}
         }
@@ -396,7 +396,7 @@ function checkMessageForCommand(msg, isEdit) {
         }
 
         if (msg.author != bot.user && msg.isMentioned(bot.user)) {
-                //msg.channel.send("yes?"); //using a mention here can lead to looping
+                msg.channel.send("yes?"); //using a mention here can lead to looping
         } else {
 
 				}
@@ -417,10 +417,10 @@ bot.on("messageUpdate", (oldMessage, newMessage) => {
 
 //Log user status changes
 bot.on("presence", function(user,status,gameId) {
-	//if(status === "online"){
-	//console.log("presence update");
+	if(status === "online"){
+	console.log("presence update");
 	console.log(user+" went "+status);
-	//}
+	}
 	try{
 	if(status != 'offline'){
 		if(messagebox.hasOwnProperty(user.id)){
